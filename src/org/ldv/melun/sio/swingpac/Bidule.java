@@ -17,7 +17,7 @@ import javax.swing.Timer;
  * Modèle générique d'objet se déplacant dans la fenêtre (la scene)
  * 
  * @date 2013-09-09
- * @author kpu
+ * @author kpu (lycée Léonard de Vinci - Melun - SIO-SLAM)
  * 
  *         TODO: mémoriser le nombre d'impacts d'objet bidules réalisés (pas
  *         subis)
@@ -42,7 +42,7 @@ public class Bidule extends JPanel {
   private int incY, incX;
 
   /**
-   * nom public de la classe (pourrait être pris aussi via getClass().getName()
+   * nom de l'instance (TODO : pourrait être pris par défaut via getClass().getName()...)
    */
   private String name;
 
@@ -353,8 +353,8 @@ public class Bidule extends JPanel {
 
   /**
    * appelé par la tache du timer pour déplacer l'objet courant. Suite à cet
-   * appel, L'objet est positionné setLocation(getX() + incX, getY() + incY);
-   * puis automatiquement recadré dans la scene si nécessaire
+   * appel, l'objet est positionné par setLocation(getX() + incX, getY() + incY);
+   * puis automatiquement recadré dans la scene si nécessaire.
    */
   public void doMove() {
     // obtenir les coordonnées de la scene

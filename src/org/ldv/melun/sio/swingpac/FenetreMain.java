@@ -17,7 +17,7 @@ import org.ldv.melun.sio.swingpac.utils.PackageUtil;
 
 /**
  * Définition de la scene du jeu et instanciation des objets. 
- *
+ * @author lycée Léonard de Vinci - Melun - SIO-SLAM
  */
 public class FenetreMain extends JFrame implements ActionListener {
   // une constante (mot clé final)
