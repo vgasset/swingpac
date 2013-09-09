@@ -1,0 +1,64 @@
+Projet pédagogique : kpu le 08/10/2013
+
+Le but de ce projet est de permettre à des étudiants ayant une première expérience
+ de la POO (initiation), de reprendre du service avec plaisir en début de seconde année SIO ;-)
+
+Quelques missions sont données dans le code. Pour les consulter, le plus efficace 
+est de les lister. Pour cela, activer la vue 'Task' d'Eclipse par la commande :   
+
+	Windows / Show View / Task
+
+Les taches difficile peuvent être laissées de côté.
+
+Ensuite, l'objectif est de concevoir une nouvelle classe héritant de Bidule qui 
+l'emporte le plus souvent sur les 3 classes livrées avec le modèle.
+Les nouvelles classes seront obligatoirement placées dans un package particuler 
+ => voir la constante PACKAGE_BIDULES de la classe FentreMain
+
+Contrainte : Attention, un bidule ne peut se déplacer que pixel par pixel. 
+             Le développeur ne devra pas utiliser les fonctions de déplacement 
+             de l'API Swing/swt (setLocation, setBounds, setX, etc...) 
+
+Le sens de déplacement peut être modifié via goOnXXX ou via setIncX/setIncY. Ces 2 dernières
+méthodes ne peuvent recevoir que des valeurs comprises dans cet ensemble : {-1, 0, 1} 
+Toute autre valeur entrainera un positionnement en 0 (déplacement horizontal ou vertical) 
+
+La stratégie, à programmer, se fait sur 2 événements : doMove et doAfterImpactByOther
+
+  /**
+   * établir une stratégie après impact (un autre bidule vient de toucher
+   * l'objet courant)
+   */
+  protected void doAfterImpactByOther() {
+    // à redéfinir par les classes enfants
+  }
+  
+  /**
+   * appelé par la tache du timer pour déplacer l'objet courant. Suite à cet appel, 
+   * L'objet est positionné  setLocation(getX() + incX, getY() + incY); 
+   * puis automatiquement recadré dans la scene si nécessaire   
+   */
+  public void doMove() {
+    ...
+  }
+  
+  
+Exemple : 
+
+  @Override
+  public void doMove() {
+    setIncX(0); // annule le déplacement horizontal 
+  
+    super.doMove();  <=== l'appel à la méthode héritée doMove permet de
+    					  conserver un déplacement classique (pas obligatoire)
+    					   
+  }
+
+  @Override
+  protected void doAfterImpactByOther() {
+    // faire quelquechose éventuellement ici
+    goOnTop(); // par exemple 
+  }
+
+Voir les exemples des classes Bidule livrées.
+Vous pouvez ajouter des méthodes (radar par exemple) comme il vous semble.
