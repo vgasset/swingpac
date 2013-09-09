@@ -1,6 +1,7 @@
 package org.ldv.melun.sio.swingpac;
 
 import java.awt.BorderLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,6 +17,11 @@ import javax.swing.JOptionPane;
 
 import org.ldv.melun.sio.swingpac.utils.PackageUtil;
 
+/**
+ * Définition de la scene du jeu et instanciation des objets. 
+ * @author kpu
+ *
+ */
 public class FenetreMain extends JFrame implements ActionListener {
   // une constante (mot clé final)
   // c'est un moyen très pratique d'associer un écouteur d'événement
@@ -130,4 +136,3 @@ public class FenetreMain extends JFrame implements ActionListener {
   }
 
 }// FentreMain
-
