@@ -1,7 +1,5 @@
 package org.ldv.melun.sio.swingpac;
 
-import java.awt.BorderLayout;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,7 +17,6 @@ import org.ldv.melun.sio.swingpac.utils.PackageUtil;
 
 /**
  * Définition de la scene du jeu et instanciation des objets. 
- * @author kpu
  *
  */
 public class FenetreMain extends JFrame implements ActionListener {
@@ -100,38 +97,47 @@ public class FenetreMain extends JFrame implements ActionListener {
 
   }
 
+  /**
+   * Injecte des objets Bidule dans cette instance de fenêtre
+   */
+  private void go() {
+    // récupère la liste des classes du package en question
+    String[] classes = PackageUtil.getClasses(PACKAGE_BIDULES);
+    List<String> classesShuffles = Arrays.asList(classes);
+    
+    // change l'ordre des éléments dans le tableau
+    Collections.shuffle(classesShuffles);
+    System.out.println(classesShuffles);
+    
+    // on instancie les classes (un objet par class)
+    // et l'ajoute à la scene (fenetre)
+    String erreurs = "";
+    for (int i = 0; i < classesShuffles.size(); i++) {
+      try {
+        Bidule bidule = (Bidule) Class.forName(
+            PACKAGE_BIDULES + "." + classesShuffles.get(i)).newInstance();
+        bidule.setLocation(20 + i * TAILLE_BIDULE, +i * TAILLE_BIDULE);
+
+        // ajout l'objet à la fenêtre
+        this.add(bidule);
+      } catch (Exception e) {
+        erreurs = e.getMessage();
+      }
+    }
+    if (!"".equals(erreurs))
+      JOptionPane.showMessageDialog(null, erreurs);
+  }
+
+  /**
+   * Appelé par les commandes du menu
+   */
   public void actionPerformed(ActionEvent evt) {
     String action = evt.getActionCommand();
 
     if (action.equals(ACTION_QUITTER)) {
       System.exit(0);
     } else if (action.equals(ACTION_GO)) {
-      // récupère la liste des classes du package en question
-      String[] classes = PackageUtil.getClasses(PACKAGE_BIDULES);
-      List<String> classesShuffles = Arrays.asList(classes);
-      
-      // change l'ordre des éléments dans le tableau
-      Collections.shuffle(classesShuffles);
-      System.out.println(classesShuffles);
-      
-      // on instancie les classes (un objet par class)
-      // et l'ajoute à la scene (fenetre)
-      String erreurs = "";
-      for (int i = 0; i < classesShuffles.size(); i++) {
-        Bidule bidule;
-        try {
-          bidule = (Bidule) Class.forName(
-              PACKAGE_BIDULES + "." + classesShuffles.get(i)).newInstance();
-          bidule.setLocation(20 + i * TAILLE_BIDULE, +i * TAILLE_BIDULE);
-          this.add(bidule);
-        } catch (Exception e) {
-          erreurs = e.getMessage();
-        }
-
-      }
-      if (!"".equals(erreurs))
-        JOptionPane.showMessageDialog(null, erreurs);
-
+      go();
     }
   }
 

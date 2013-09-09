@@ -19,9 +19,15 @@ import javax.swing.Timer;
  * @date 2013-09-09
  * @author kpu
  * 
+ *         TODO: mémoriser le nombre d'impacts d'objet bidules réalisés (pas
+ *         subis)
+ *         
+ *         TODO : reféfinir toString afin de remonter des informations pertinentes 
+ * 
  *         TODO (plus difficile) : charger des images dans un tableau et
- *         appliquer la bonne image (dans paintComponent) en fonction de la direction
- *         de déplacement (à la pacman)
+ *         appliquer la bonne image (dans paintComponent) en fonction de la
+ *         direction de déplacement (à la pacman)
+ * 
  */
 public class Bidule extends JPanel {
 
@@ -227,6 +233,7 @@ public class Bidule extends JPanel {
     if (getWidth() < NB_MINMAL_PIXELS_VIE || getHeight() < NB_MINMAL_PIXELS_VIE) {
       // sucide...
       this.stop();
+      System.out.println("Je meurs :-(   " + this.name);
       getParent().remove(this);
     }
 
