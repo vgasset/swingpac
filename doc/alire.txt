@@ -8,7 +8,7 @@ est de les lister. Pour cela, activer la vue 'Task' d'Eclipse par la commande :
 
 	Windows / Show View / Task
 
-Les taches difficile peuvent être laissées de côté.
+Les taches difficiles peuvent être laissées de côté.
 
 Ensuite, l'objectif est de concevoir une nouvelle classe héritant de Bidule qui 
 l'emporte le plus souvent sur les 3 classes livrées avec le modèle.
@@ -23,7 +23,16 @@ Le sens de déplacement peut être modifié via goOnXXX ou via setIncX/setIncY. 
 méthodes ne peuvent recevoir que des valeurs comprises dans cet ensemble : {-1, 0, 1} 
 Toute autre valeur entrainera un positionnement en 0 (déplacement horizontal ou vertical) 
 
-La stratégie, à programmer, se fait sur 2 événements : doMove et doAfterImpactByOther
+La stratégie, à programmer, se concentre sur 2 événements : doMove et doAfterImpactByOther
+
+  /**
+   * appelé par la tache du timer pour déplacer l'objet courant. Suite à cet appel, 
+   * L'objet est positionné  setLocation(getX() + incX, getY() + incY); 
+   * puis automatiquement recadré dans la scene si nécessaire   
+   */
+  public void doMove() {
+     // agir sur incX et incY
+  }
 
   /**
    * établir une stratégie après impact (un autre bidule vient de toucher
@@ -32,16 +41,7 @@ La stratégie, à programmer, se fait sur 2 événements : doMove et doAfterImpa
   protected void doAfterImpactByOther() {
     // à redéfinir par les classes enfants
   }
-  
-  /**
-   * appelé par la tache du timer pour déplacer l'objet courant. Suite à cet appel, 
-   * L'objet est positionné  setLocation(getX() + incX, getY() + incY); 
-   * puis automatiquement recadré dans la scene si nécessaire   
-   */
-  public void doMove() {
-    ...
-  }
-  
+    
   
 Exemple : 
 
