@@ -1,7 +1,11 @@
-Projet pédagogique : kpu le 08/10/2013
+Projet pédagogique : kpu le 08/10/2013 - LDV -Melun
 
 Le but de ce projet est de permettre à des étudiants ayant une première expérience
  de la POO (initiation), de reprendre du service avec plaisir en début de seconde année SIO ;-)
+
+Le thème est basé sur des objets cannibales... Celui qui touche un autre lui fait perdre du poids.
+Un objet devenu trop petit meurt sur place. Celui qui gagne est celui qui reste... ou l'inverse ;-)
+La logique de déplacement des objets est déterminée par leur classe.
 
 Quelques missions sont données dans le code. Pour les consulter, le plus efficace 
 est de les lister. Pour cela, activer la vue 'Task' d'Eclipse par la commande :   
