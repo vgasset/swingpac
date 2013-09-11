@@ -1,4 +1,4 @@
-Projet pédagogique : kpu le 08/10/2013 - LDV -Melun
+Projet pédagogique : kpu le 08/10/2013 - LDV - Melun
 
 Le but de ce projet est de permettre à des étudiants ayant une première expérience
  de la POO (initiation), de reprendre du service avec plaisir en début de seconde année SIO ;-)
@@ -16,12 +16,13 @@ Les taches difficiles peuvent être laissées de côté.
 
 Ensuite, l'objectif est de concevoir une nouvelle classe héritant de Bidule qui 
 l'emporte le plus souvent sur les 3 classes livrées avec le modèle.
-Les nouvelles classes seront obligatoirement placées dans un package particuler 
+Pour être automantiquement instanciées, les nouvelles classes devront être 
+placées dans un package particuler (le même sue les 3 de base)  
  => voir la constante PACKAGE_BIDULES de la classe FentreMain
 
 Contrainte : Attention, un bidule ne peut se déplacer que pixel par pixel. 
              Le développeur ne devra pas utiliser les fonctions de déplacement 
-             de l'API Swing/swt (setLocation, setBounds, setX, etc...) 
+             de l'API swing/awt (setLocation, setBounds, setX, etc...) 
 
 Le sens de déplacement peut être modifié via goOnXXX ou via setIncX/setIncY. Ces 2 dernières
 méthodes ne peuvent recevoir que des valeurs comprises dans cet ensemble : {-1, 0, 1} 
@@ -65,5 +66,6 @@ Exemple :
   }
 
 Voir les exemples des classes Bidule livrées.
-Vous pouvez ajouter des méthodes (radar par exemple) comme il vous semble.
+
+Dans vos classes, vous pouvez ajouter attributs et méthodes (radar par exemple), comme il vous semble.
 

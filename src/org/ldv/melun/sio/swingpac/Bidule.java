@@ -225,8 +225,8 @@ public class Bidule extends JPanel {
         getHeight() - 1);
 
     // TODO (plus difficile) : augmenter la taille de biduleImpacteur (dans la
-    // limite de la taille initiale)
-    // si celui-ci a touché au moins 5 autres bidules
+    // limite du quart (un pourcentage) de la taille initiale)
+    // si celui-ci a touché au moins x autres bidules
 
     // en dessous d'une dimension minimale, l'objet
     // courant disparait de ce monde...
