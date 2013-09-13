@@ -1,8 +1,10 @@
 package org.ldv.melun.sio.swingpac;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +28,10 @@ public class FenetreMain extends JFrame implements ActionListener {
   static final String ACTION_QUITTER = "Quitter";
 
   static final String ACTION_GO = "Go";
+  
+  static final String ACTION_PAUSE = "Pause" ;
+  
+  static final String ACTION_RESTART = "Restart";
 
   private static final String PACKAGE_BIDULES = "org.ldv.melun.sio.swingpac.etudiants";
 
@@ -83,7 +89,23 @@ public class FenetreMain extends JFrame implements ActionListener {
     menuBar.add(jeu);
 
     // TODO : ajouter une commande Pause qui stoppe le timer de tous les objets
-    // Bidule.
+    
+    JMenuItem Pause = new JMenuItem("pause", KeyEvent.VK_P);
+    Pause.setActionCommand(ACTION_PAUSE);
+    Pause.addActionListener(this);
+    jeu.add(Pause);
+    menuBar.add(jeu);
+    
+    // TODO : Permet de relancer les bidules après la pause
+    
+    JMenuItem Restart = new JMenuItem("restart", KeyEvent.VK_R);
+    Restart.setActionCommand(ACTION_RESTART);
+    Restart.addActionListener(this);
+    jeu.add(Restart);
+    menuBar.add(jeu);
+    
+    
+    
 
     // on ajoute la barre de menu à la fenêtre
     setJMenuBar(menuBar);
@@ -138,7 +160,41 @@ public class FenetreMain extends JFrame implements ActionListener {
       System.exit(0);
     } else if (action.equals(ACTION_GO)) {
       go();
+    } else if (action.equals(ACTION_PAUSE)) {
+      pause();    	
+    } else if (action.equals(ACTION_RESTART)) {
+      restart();	
     }
   }
 
-}// FentreMain
+private void restart() {
+	List<Bidule> bidulesPresent = new ArrayList<Bidule>();
+	
+		for (Component obj : this.getContentPane().getComponents()){
+			if (obj instanceof Bidule && obj != this)
+				
+				bidulesPresent.add((Bidule) obj);
+		}
+		for (Bidule bidules : bidulesPresent) {
+			bidules.start();
+		}
+		// TODO Auto-generated method stub
+	
+}
+
+private void pause() {
+	List<Bidule> bidulesPresent = new ArrayList<Bidule>();
+	
+	for (Component obj : this.getContentPane().getComponents()){
+		if (obj instanceof Bidule && obj != this)
+			
+			bidulesPresent.add((Bidule) obj);
+	}
+	for (Bidule bidules : bidulesPresent) {
+		bidules.stop();
+	
+	// TODO Auto-generated method stub
+	
+}
+
+}}// FentreMain
