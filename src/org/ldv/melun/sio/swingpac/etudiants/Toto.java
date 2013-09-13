@@ -9,7 +9,7 @@ public class Toto extends Bidule {
   }
 
   public Toto() {
-    super("Tonton");
+    super("Superman");
   }
 
   

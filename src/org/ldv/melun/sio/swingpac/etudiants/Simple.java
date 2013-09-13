@@ -8,7 +8,7 @@ public class Simple extends Bidule {
 
   
   public Simple() {
-    super("Simple");
+    super("Green Lantern");
     setBackground(Color.GREEN);    
   }
 

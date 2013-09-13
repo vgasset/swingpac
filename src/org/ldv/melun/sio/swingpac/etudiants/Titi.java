@@ -9,7 +9,7 @@ public class Titi extends Bidule {
   private int nbDeplacements;
 
   public Titi() {
-    super("Tintin");
+    super("Flash");
     setBackground(Color.RED);
     nbDeplacements = 0;
   }
