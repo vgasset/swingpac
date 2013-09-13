@@ -44,6 +44,16 @@ public class Bidule extends JPanel {
   /**
    * nom de l'instance (TODO : pourrait être pris par défaut via getClass().getName()...)
    */
+  
+  	String Bidule = getName();
+  	
+  	public String getName() {
+  		return name;
+  	
+  	}
+  	
+  	
+  
   private String name;
 
   /**
