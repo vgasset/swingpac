@@ -1,6 +1,8 @@
 package org.ldv.melun.sio.swingpac.etudiants;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 
 import org.ldv.melun.sio.swingpac.Bidule;
 
@@ -11,7 +13,7 @@ public class Vgasset extends Bidule {
   
   public Vgasset() {
     super("Vgasset");
-    setBackground(Color.BLACK);    
+    setBackground(Color.WHITE);    
   }
 
   @Override
@@ -25,5 +27,13 @@ public class Vgasset extends Bidule {
 	      else
 	        goOnLeft();
 	    
+  }
+  
+  private Image image = null;
+  protected void paintComponent(Graphics g) {
+	  super.paintComponent(g);
+	  	image = getToolkit().getImage("images/smil.png");
+	  	if (image != null) // Si l'image existe
+	  		g.drawImage(image,  0,  0,getWidth(),getHeight(),this);
   }
 }
