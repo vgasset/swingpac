@@ -32,7 +32,7 @@ public class Vgasset extends Bidule {
   private Image image = null;
   protected void paintComponent(Graphics g) {
 	  super.paintComponent(g);
-	  	image = getToolkit().getImage("images/smil.png");
+	  	image = getToolkit().getImage("images/tranquille.jpg");
 	  	if (image != null) // Si l'image existe
 	  		g.drawImage(image,  0,  0,getWidth(),getHeight(),this);
   }
